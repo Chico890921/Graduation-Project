@@ -1,0 +1,173 @@
+@charset "UTF-8";
+* {
+  font-family: "Comfortaa", "微軟正黑體";
+  /* border: solid 1px black !important; */
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+html, body {
+  overflow-x: hidden;
+  font-size: 16px;
+  background-color: #303841;
+  color: #EAEAEA;
+}
+
+header {
+  position: relative;
+  background-color: #303841;
+  text-align: center;
+}
+header h1 {
+  padding: 250px 0px;
+  color: #FFA652;
+  letter-spacing: 5px;
+}
+
+nav.navbar {
+  transition: 0.5s;
+  background-color: rgba(234, 234, 234, 0.9);
+}
+nav.navbar a {
+  transition: 0.35s;
+  letter-spacing: 3px;
+  font-weight: 900;
+}
+
+nav.navbar.at_top {
+  background-color: transparent;
+}
+nav.navbar.at_top a, nav.navbar.at_top a:visited {
+  color: #EAEAEA;
+}
+nav.navbar.at_top a:hover, nav.navbar.at_top a:visited:hover {
+  color: #FFA652;
+}
+
+section {
+  padding: 30px 0px;
+  position: relative;
+  background-color: #EAEAEA;
+  border-radius: 28px;
+  color: #303841;
+  letter-spacing: 2px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+  margin: 20px;
+  margin-top: 35px;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+section .container {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header {
+  margin-top: 60px;
+}
+
+#section_result {
+  padding: 0;
+}
+section#section_result .circle_ex {
+  width: 500px;
+  height: 500px;
+  top: -60px;
+  left: 48%;
+  transform: translateX(-50%);
+  margin: 10px;
+}
+section#section_result .item {
+  background-color: #ffefe1;
+  border-radius: 28px;
+  margin: 19px 0px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+}
+
+section#section_f .item {
+  background-color: #ffefe1;
+  border-radius: 28px;
+  margin: 19px 0px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+  margin-left: 15px;
+  margin-right: 15px;
+  height: 500px;
+  padding: 10px;
+
+}
+
+@keyframes ani1 {
+  0% {
+    transform: rotate(-135deg);
+  }
+  50%, 100% {
+    transform: rotate(45deg);
+  }
+}
+@keyframes ani2 {
+  0%, 50% {
+    transform: rotate(-135deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+::selection {
+  color: #303841;
+  background: #8FBCBB;
+}
+section#section_start {
+  background-color: #303841;
+  color: #EAEAEA;
+}
+section#section_start .container {
+  margin-bottom: 240px;
+}
+section#section_start .row {
+  color: #303841;
+}
+section#section_start .heading {
+  position: relative;
+  padding-top: 60px;
+  padding-left: 30px;
+  font-size: 26px;
+  color: #EAEAEA;
+}
+section#section_start .heading span {
+  position: relative;
+  z-index: 0;
+}
+section#section_start .heading::before {
+  content: attr(data2-en);
+  position: absolute;
+  transform: rotate(-5deg);
+  top: 0;
+  left: 0;
+  color: #FFA652;
+  font-size: 60px;
+  font-weight: 400;
+  font-family: "Mrs Saint Delafield", cursive;
+}
+section#section_start .filesbody {
+  background-color: #EAEAEA;
+  color: #303841;
+  padding: 20px 40px;
+  height: 200px;
+  border-radius: 28px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+}
+section#section_start .filesbody input {
+  padding: 10px;
+  letter-spacing: 3px;
+  top: 30px;
+}
+section#section_start .filesbody button {
+  top: 45px;
+  letter-spacing: 3px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+}

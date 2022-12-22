@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - 專題 page 1</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&amp;display=swap'>
+  <link rel='stylesheet' href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<nav class="navbar navbar-default navbar-fixed-top at_top">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#header_index">電商與消費者信用度</a>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#section_about">About</a></li>
+        <li><a href="#section_start">Start</a></li>
+      </ul>
+    </div>
+    <!-- /.nav-collapse-->
+  </div>
+</nav>
+<header id="header_index">
+  <div class="container">
+    <h1 data-0="transform: translateY(-50px)" data-500="transform: translateY(100px)">電商與消費者信用度</h1>
+    <img class="marginbottom mountain" src="{{ url_for('static', filename='pic/bg.png') }}"/>
+    <div class="explore at_top"><a href="#section_about">開始</a></div>
+  </div>
+</header>
+<section id="section_about">
+  <div class="container" data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(-30px);opacity: 1">
+    <h2 class="heading" data-en="About"> <span>關於這個專題</span></h2>
+    <div class="border">
+      <div class="row">
+        <div class="col-sm-12 col-sm-offset-2" data-200="opacity: 0" data-450="opacity: 1">
+          <p class="r1text">交易評論中常常出現惡意評論</p>
+          <p class="r1text">含有大量惡意的詞彙</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-10 offset-sm-2" data-300="opacity: 0" data-500="opacity: 1">
+          <p class="r2text">不僅攻擊賣家也損毀他人名譽</p>
+          <p class="r2text">藉由本程式</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-7 col-sm-offset-1" data-350="opacity: 0" data-550="opacity: 1">
+          <p class="r3text">我們希望過濾負面的詞彙</p>
+          <p class="r3text">計算對話中的惡意程度</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-10 offset-sm-2" data-400="opacity: 0" data-600="opacity: 1">
+          <p class="r4text">標註哪些是惡意訊息</p>
+          <p class="r4text">並進行驗證</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section_start">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-12 mx-auto" data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(-30px);opacity: 1">
+        <h2 class="heading" data2-en="Let's begin"><span>開始</span></h2>
+        <div class="filesbody">
+          <form action="{{ url_for('result') }}">
+            <input type="url" name="url" class="input-lg col-xs-10 col-xs-offset-1" placeholder="請輸入蝦皮賣場的網址" data-bottom-top="transform: translateX(50px)" data-center="transform: translateX(0px)"/>
+            <button type="submit" value="提交" class="input-lg btn btn-warning col-xs-3 col-xs-offset-8 col-md-2 col-md-offset-9" data-bottom-top="transform: scale(1.5);opacity: 0" data-center="transform: scale(1);opacity: 1">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js'></script>
+  <script src='https://cdn.jsdelivr.net/gh/Chico890921/CDN/smooth.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js'></script><script  src="./script.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/move.js') }}"></script>
+</body>
+</html>

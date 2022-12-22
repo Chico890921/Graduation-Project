@@ -1,0 +1,222 @@
+@charset "UTF-8";
+* {
+  font-family: "Comfortaa", "微軟正黑體";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+html, body {
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+header {
+  position: relative;
+  background-color: #303841;
+  text-align: center;
+}
+header h1 {
+  padding: 250px 0px;
+  color: #FFA652;
+  letter-spacing: 5px;
+}
+header .marginbottom {
+  position: absolute;
+  width: 110%;
+  bottom: 0px;
+  left: -20px;
+  animation: upin 2s both;
+}
+@keyframes upin {
+  0% {
+    bottom: -100px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+header .explore {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  letter-spacing: 5px;
+  top: 85%;
+  opacity: 0;
+  transition: 0.5s;
+}
+header .explore a, header .explore a:visited {
+  color: #FFA652;
+  text-decoration: none;
+}
+header .explore:after {
+  display: block;
+  content: "v";
+  transform: scaleX(1.2) scaleY(0.5);
+}
+header .explore.at_top {
+  opacity: 1;
+}
+
+nav.navbar {
+  transition: 0.5s;
+  background-color: rgba(234, 234, 234, 0.9);
+}
+nav.navbar a {
+  transition: 0.35s;
+  letter-spacing: 3px;
+  font-weight: 900;
+}
+
+nav.navbar.at_top {
+  background-color: transparent;
+}
+nav.navbar.at_top a, nav.navbar.at_top a:visited {
+  color: #EAEAEA;
+}
+nav.navbar.at_top a:hover, nav.navbar.at_top a:visited:hover {
+  color: #FFA652;
+}
+
+section {
+  padding: 30px 0px;
+  position: relative;
+}
+
+section#section_about {
+  background-color: #A2C774;
+}
+section#section_about .container {
+  margin-bottom: 240px;
+}
+section#section_about .heading {
+  position: relative;
+  padding-top: 60px;
+  padding-left: 30px;
+  font-size: 26px;
+}
+section#section_about .heading span {
+  position: relative;
+  z-index: 0;
+}
+section#section_about .heading::before {
+  content: attr(data-en);
+  position: absolute;
+  transform: rotate(-5deg);
+  top: 0;
+  left: 0;
+  color: #FFA652;
+  font-size: 60px;
+  font-weight: 400;
+  font-family: "Mrs Saint Delafield", cursive;
+}
+section#section_about .border {
+  background-color: #e7e7e7;
+  padding: 40px;
+  border-radius: 28px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+}
+section#section_about .row {
+  color: #303841;
+}
+section#section_about .row .r1text {
+  font-size: 20px;
+  font-weight: 900;
+  height: 30px;
+  letter-spacing: 3px;
+  transform: translate(80px, 0px);
+  transition: 0.1s;
+}
+section#section_about .row .r2text {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  transform: translate(60px, 0px);
+  text-align: right;
+  transition: 0.2s;
+}
+section#section_about .row .r3text {
+  font-size: 25px;
+  font-weight: 900;
+  height: 50px;
+  letter-spacing: 2px;
+  transform: translate(260px, -10px);
+  transition: 0.3s;
+}
+section#section_about .row .r4text {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  transform: translate(60px, 0px);
+  text-align: right;
+  transition: 0.35s;
+}
+section#section_about .btn-area {
+  height: 150px;
+}
+section#section_about a {
+  background-color: #FFA652;
+  border: solid 2px #EAEAEA !important;
+}
+section#section_about a, section#section_about a:visited {
+  color: #303841;
+}
+
+section#section_start {
+  background-color: #303841;
+  color: #EAEAEA;
+}
+section#section_start .container {
+  margin-bottom: 240px;
+}
+section#section_start .row {
+  color: #303841;
+}
+section#section_start .heading {
+  position: relative;
+  padding-top: 60px;
+  padding-left: 30px;
+  font-size: 26px;
+  color: #EAEAEA;
+}
+section#section_start .heading span {
+  position: relative;
+  z-index: 0;
+}
+section#section_start .heading::before {
+  content: attr(data2-en);
+  position: absolute;
+  transform: rotate(-5deg);
+  top: 0;
+  left: 0;
+  color: #FFA652;
+  font-size: 60px;
+  font-weight: 400;
+  font-family: "Mrs Saint Delafield", cursive;
+}
+section#section_start .filesbody {
+  background-color: #EAEAEA;
+  color: #303841;
+  padding: 20px 40px;
+  height: 200px;
+  border-radius: 28px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+}
+section#section_start .filesbody input {
+  padding: 10px;
+  letter-spacing: 3px;
+  top: 30px;
+}
+section#section_start .filesbody button {
+  top: 45px;
+  letter-spacing: 3px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+}
+
+::selection {
+  color: #303841;
+  background: #8FBCBB;
+}

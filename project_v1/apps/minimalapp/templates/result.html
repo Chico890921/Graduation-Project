@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>電商與消費者信用度 - result </title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500'><link rel="stylesheet" href="./style.css">
+  <link rel='stylesheet' href="{{ url_for('static', filename='css/style_page2.css') }}">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&amp;display=swap'>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<nav class="navbar navbar-default navbar-fixed-top at_top">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#header_index">電商與消費者信用度</a>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="#section_result">Result</a></li>
+        <li><a href="#section_start">Start</a></li>
+      </ul>
+    </div>
+    <!-- /.nav-collapse-->
+  </div>
+</nav>
+<header id="header_index">
+  <div class="container">
+    <h1 data-0="transform: translateY(-50px)" data-500="transform: translateY(100px)">分析結果</h1>
+    <!-- <div class="row">
+      <div class="col-xs-12 visible-lg">
+        <h3>LG (大螢幕 | > 1200px)</h3>
+      </div>
+      <div class="col-xs-12 visible-md">
+        <h3>MD (中螢幕 | > 992px)</h3>
+      </div>
+      <div class="col-xs-12 visible-sm">
+        <h3>SM (小螢幕 | > 768px)</h3>
+      </div>
+      <div class="col-xs-12 visible-xs">
+        <h3>XS (極小螢幕 | < 768px)</h3>
+      </div>
+    </div> -->
+  </div>
+</header>
+<section id="section_result">
+  <div class="container">
+    <!-- <div class="row">
+      <div class="block col-xs-1">1</div>
+      <div class="block col-xs-1">2</div>
+      <div class="block col-xs-1">3</div>
+      <div class="block col-xs-1">4</div>
+      <div class="block col-xs-1">5</div>
+      <div class="block col-xs-1">6</div>
+      <div class="block col-xs-1">7</div>
+      <div class="block col-xs-1">8</div>
+      <div class="block col-xs-1">9</div>
+      <div class="block col-xs-1">10</div>
+      <div class="block col-xs-1">11</div>
+      <div class="block col-xs-1">12</div>
+    </div> -->
+    <div class="row">
+      <div class="col-lg-6 col-md-7">
+        <!-- <h3>(.col-lg-6.col-md-7.col-sm-5)</h3> -->
+        <!-- <div id="main" class="circle_ex"> -->
+        <div id="result_score" class="circle_ex"></div>
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-6 item">
+        <!-- <h3>評價數量(.col-sm-7)</h3> -->
+        <h3>評價數量</h3>
+        <table class="table table-hover">
+          <thread>
+            <tr> 
+              <th>正面</th>
+              <th>負面</th>
+              <th>不雅</th>
+            </tr>
+          </thread>
+          <tr>
+            <th>{{ details.positive_count }}</th>
+            <th>{{ details.negative_count }}</th>
+            <th>{{ details.bad_count }}</th>
+          </tr>
+        </table>
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-6 item">
+        <!-- <h3>買賣數量(.col-sm-7)</h3> -->
+        <h3>分數計算</h3>
+        <table class="table table-hover">
+          <thread>
+            <tr> 
+              <th>正面</th>
+              <th>負面</th>
+              <th>不雅</th>
+            </tr>
+          </thread>
+          <tr>
+            <th>{{ details.positive_score }}</th>
+            <th>{{ details.negative_score }}</th>
+            <th>{{ details.bad_score }}</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section_f"> 
+  <div class="container">
+    <h2>Positive Words</h2>
+    <p id="no_item_p"></p>
+    <div class="star col-md item" id="positive_count"></div>
+  </div>
+</section>
+<section id="section_f">
+  <div class="container">
+    <h2>Negative Words</h2>
+    <p id="no_item_n"></p>
+    <div class="col-md item" id="negative_count"></div>
+  </div>
+</section>
+<section id="section_f">
+  <div class="container">
+    <h2>Bad Words</h2>
+    <p id="no_item_b"></p>
+    <div class="col-md item" id="bad_count">
+    </div>
+  </div>
+</section>
+<section id="section_start">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-12 mx-auto" data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(-30px);opacity: 1">
+        <h2 class="heading" data2-en="Let's begin"><span>再測一次</span></h2>
+        <div class="filesbody">
+          <form action="{{ url_for('result') }}">
+            <input type="url" name="url" class="input-lg col-xs-10 col-xs-offset-1" placeholder="請輸入蝦皮賣場的網址" data-bottom-top="transform: translateX(50px)" data-center="transform: translateX(0px)"/>
+            <button type="submit" value="提交" class="input-lg btn btn-warning col-xs-3 col-xs-offset-8 col-md-2 col-md-offset-9" data-bottom-top="transform: scale(1.5);opacity: 0" data-center="transform: scale(1);opacity: 1">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/Chico890921/CDN/smooth.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js'></script><script  src="./script.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/data.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+<!-- <script src="{{ url_for('static', filename='js/move.js') }}"></script> -->
+
+<!-- 綜合信用分數 -->
+<script>
+    var chartDom = document.getElementById('result_score');
+    var myChart = echarts.init(chartDom);
+    var option;
+    var data = {{data|tojson}}
+
+    option = {
+      series: [
+        {
+          type: 'gauge',
+          startAngle: 180,
+          endAngle: 0,
+          center: ['50%', '75%'],
+          radius: '80%',
+          min: 0,
+          max: 1,
+          splitNumber: 8,
+          axisLine: {
+              lineStyle: {
+              width: 6,
+              color: [
+                  [0.25, '#FF6E76'],
+                  [0.5, '#F5D061'],
+                  [0.75, '#58D9F9'],
+                  [1, '#A2C774']
+              ]
+              }
+          },
+          pointer: {
+              icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',
+              length: '12%',
+              width: 20,
+              offsetCenter: [0, '-60%'],
+              itemStyle: {
+              color: 'auto'
+              }
+          },
+          axisTick: {
+              length: 12,
+              lineStyle: {
+              color: 'auto',
+              width: 2
+              }
+          },
+          splitLine: {
+              length: 20,
+              lineStyle: {
+              color: 'auto',
+              width: 5
+              }
+          },
+          axisLabel: {
+              color: '#464646',
+              fontSize: 20,
+              distance: -60,
+              rotate: 'tangential',
+              formatter: function (value) {
+                if (value === 0.875) {
+                    return '優良';
+                } else if (value === 0.625) {
+                    return '良';
+                } else if (value === 0.375) {
+                    return '普通';
+                } else if (value === 0.125) {
+                    return '不優';
+                }
+                return '';
+              }
+          },
+          title: {
+              offsetCenter: [0, '-10%'],
+              fontSize: 20
+          },
+          detail: {
+              fontSize: 30,
+              offsetCenter: [0, '-35%'],
+              valueAnimation: true,
+              formatter: function (value) {
+                return Math.round(value * 100) + '';
+              },
+              color: 'auto'
+          },
+          data: data
+        }
+      ]
+    };
+
+    option && myChart.setOption(option);
+</script>
+
+<!-- words, score, times -->
+<script>
+var chartDom_p = document.getElementById('positive_count');
+var myChart_p = echarts.init(chartDom_p);
+var option;
+var dataset_p = {{dataset_p|tojson}};
+
+var chartDom_n = document.getElementById('negative_count');
+var myChart_n = echarts.init(chartDom_n);
+var dataset_n = {{dataset_n|tojson}};
+
+var chartDom_b = document.getElementById('bad_count');
+var myChart_b = echarts.init(chartDom_b);
+var dataset_b = {{dataset_b|tojson}};
+
+function showlist(dataset_r, myChart_r) {
+  option = {
+    dataset: dataset_r,
+    grid: { containLabel: true },
+    xAxis: { name: 'times' },
+    yAxis: { type: 'category' },
+    visualMap: {
+      orient: 'horizontal',
+      left: 'center',
+      min: 1,
+      max: 3,
+      text: ['High Score', 'Low Score'],
+      // Map the score column to color
+      dimension: 0,
+      inRange: {
+        color: ['#65B581', '#FFCE34', '#FD665F']
+      }
+    },
+    series: [
+      {
+        type: 'bar',
+        encode: {
+          // Map the "amount" column to X axis.
+          x: 'amount',
+          // Map the "product" column to Y axis
+          y: 'product'
+        }
+      }
+    ]
+  };
+
+  option && myChart_r.setOption(option);
+}
+// 如果資料筆數大於 0，則印出
+// 第一筆資料為 ['score', 'amount', 'product']，不列入計算
+if (Object.keys(dataset_p['source']).length>1) {
+  showlist(dataset_p, myChart_p);
+}
+
+if (Object.keys(dataset_n['source']).length>1) {
+  showlist(dataset_n, myChart_n);
+}
+
+if (Object.keys(dataset_b['source']).length>1) {
+  showlist(dataset_b, myChart_b);
+}
+
+</script>
+
+
+
+
+</body>
+</html>
